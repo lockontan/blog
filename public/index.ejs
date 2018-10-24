@@ -1,0 +1,30 @@
+<article> 
+  <%
+    function getDate (date) {
+      let d = new Date(date)
+      return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-')
+    };
+  %>
+  <!--blogsbox begin-->
+  <div class="blogsbox">
+    <% articles.forEach(item => { %>
+        <div class="blogs" data-scroll-reveal="enter bottom over 1s" >
+          <h3 class="blogtitle"><a href="/" target="_blank"><%- item.title %></a></h3>
+          <span class="blogpic"><a href="/" title=""><img src="images/toppic01.jpg" alt=""></a></span>
+          <p class="blogtext"><%- item.describe %></p>
+          <div class="bloginfo">
+            <ul>
+              <li class="author"><a href="/">坛子菌</a></li>
+              <li class="lmname"><a href="/">学无止境</a></li>
+              <li class="timer"><%- getDate(item.created_at) %></li>
+              <!-- 
+              <li class="view"><span>34567</span>已阅读</li>
+              <li class="like">9999</li>
+               -->
+            </ul>
+          </div>
+        </div>
+    <% }) %>
+  </div>
+  <%- include('sliderbar') %>
+</article>
