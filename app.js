@@ -1,6 +1,7 @@
 // import
 var express = require('express');
 var expressLayouts = require('express-ejs-layouts');
+var bodyParser = require('body-parser');
 var path = require('path');
 
 var routes = require('./app/routes/index');
@@ -24,6 +25,9 @@ app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '365d'
 }));
+
+app.use(bodyParser.json({ limit: '2048kb' }));
+app.use(bodyParser.urlencoded({ limit: '2048kb', extended: true}));
 
 // 加载路由
 app.use(routes);

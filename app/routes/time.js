@@ -2,10 +2,9 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-var ejs = require('ejs');
 
 /**
- * GET home page
+ * GET time page
  */
 router.get('/', function(req, res, next) {
 	models.Article.findAll().then(function (data) {

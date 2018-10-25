@@ -2,7 +2,6 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
-var ejs = require('ejs');
 
 /**
  * GET home page
